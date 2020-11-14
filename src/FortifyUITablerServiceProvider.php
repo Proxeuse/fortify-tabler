@@ -3,7 +3,7 @@
 namespace Proxeuse\FortifyUITabler;
 
 use Illuminate\Support\ServiceProvider;
-use Proxeuse\FortifyUITabler\Commands\FortifyUITabler\FortifyUITablerCommand;
+use Proxeuse\FortifyUITabler\Commands\FortifyUITablerCommand;
 
 class FortifyUITablerServiceProvider extends ServiceProvider
 {
