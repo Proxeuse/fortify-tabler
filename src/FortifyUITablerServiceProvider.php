@@ -3,7 +3,7 @@
 namespace Proxeuse\FortifyUITabler;
 
 use Illuminate\Support\ServiceProvider;
-use Proxeuse\FortifyUITabler\Commands\FortifyUITabler;
+use Proxeuse\FortifyUITabler\Commands\FortifyUITabler\FortifyUITablerCommand;
 
 class FortifyUITablerServiceProvider extends ServiceProvider
 {
@@ -17,7 +17,7 @@ class FortifyUITablerServiceProvider extends ServiceProvider
             ], 'fortify-ui-tabler-resources');
 
             $this->commands([
-                FortifyUITabler::class,
+                FortifyUITablerCommand::class,
             ]);
         }
     }
