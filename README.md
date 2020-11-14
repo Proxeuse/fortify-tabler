@@ -1,29 +1,8 @@
-<p align="center"><img width="400" src="https://github.com/zacksmash/fortify-ui-preset/raw/master/fortify-preset-image.png"></p>
-
-# Using this template
-
-Here are the steps to customize this template with your preset
-
-- Rename the files in the `src` directory. Example `FortifyUIBootstrapCommand.php`
-    - Make sure you update any `use` statements and namespaces
-- Add your preset stubs to the `stubs` directory
-- Add your preset image and preset screenshots
-- Update the `composer.json`
-    - Replace all instances of `YourNamespace\\FortifyUIPreset` with your details. For example: `SomeDude\\FortifyUIBootstrap`
-- Search & Replace all of the following terms
-    - YourNamespace
-    - yournamespace
-    - YourPreset
-    - yourpreset
-    - SomeFramework
-    - Your Name
-    - yourusername
-    - you@yourdomain.com
-
+<p align="center"><img width="400" src="https://github.com/Proxeuse/fortify-tabler/raw/master/fortify-tabler.png"></p>
 
 # Introduction
 
-**YourPreset** is a Laravel Fortify UI preset, built with SomeFramework.
+**Tabler.io** is a framework based on Bootstrap. This repository is a Laravel Fortify UI preset which should be used in combination with [FortifyUI](https://github.com/zacksmash/fortify-ui). This preset includes the Tabler.io assets for [release 1.0.0-alpha.7](https://github.com/tabler/tabler/releases/tag/1.0.0-alpha.7).
 
 - [Requirements](#requirements)
 - [Installation](#installation)
@@ -36,25 +15,25 @@ This package requires Laravel Fortify and FortifyUI. Installing [*FortifyUI*](ht
 <a name="installation"></a>
 ## Installation
 
-To get started, you'll need to install **YourPreset** using Composer.
+To get started, you'll need to install **fortify-tabler** using Composer.
 
 ```bash
-composer require yournamespace/fortify-yourpreset
+composer require proxeuse/fortify-tabler
 ```
 
 Next, you'll need to run the install command:
 
 ```bash
-php artisan fortify-ui:yourpreset
+php artisan fortify-ui:tabler
 ```
 
-This command will publish **YourPreset's** views and resources to your project.
+This command will publish **fortify-tabler's** views and resources to your project.
 
 - All `auth` views
 - Other files...
 
-<p align="center"><img  src="https://github.com/zacksmash/fortify-ui-preset/raw/master/fortify-preset-screenshot.png"></p>
+<p align="center"><img  src="https://github.com/Proxeuse/fortify-tabler/raw/master/tabler-screenshot.png"></p>
 
 ## License
 
-**FortifyUIPreset** is open-sourced software licensed under the [MIT license](LICENSE.md).
+**fortify-tabler** is open-sourced software licensed under the [MIT license](LICENSE.md).

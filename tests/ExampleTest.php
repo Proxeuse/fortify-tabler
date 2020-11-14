@@ -1,6 +1,6 @@
 <?php
 
-namespace YourNamespace\FortifyUIPreset\Tests;
+namespace Proxeuse\FortifyUITabler\Tests;
 
 class ExampleTest extends TestCase
 {

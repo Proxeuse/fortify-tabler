@@ -1,47 +1,68 @@
-@if ($errors->any())
-    <div>
-        <div>{{ __('Whoops! Something went wrong.') }}</div>
+@extends('layouts.auth')
 
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-@endif
+@section('content')
 
-<form method="POST" action="{{ url('/two-factor-challenge') }}">
+<form method="POST" action="{{ url('/two-factor-challenge') }}" class="card card-md">
     @csrf
+    <div class="card-body">
+        <h2 class="mb-3 text-center">{{ __('auth.2fa.title') }}</h2>
 
-    {{--
-        Do not show both of these fields, together. It's recommended
-        that you only show one field at a time and use some logic
-        to toggle the visibility of each field
-    --}}
+        <div id="code" class="form-group mb-3 ">
+            <label class="form-label">{{ __('auth.2fa.code') }}</label>
+            <div>
+                <input type="text" name="code" autofocus autocomplete="one-time-code" class="form-control">
+                <small class="form-hint">{{ __('auth.2fa.codehelp') }}</small>
+            </div>
+        </div>
 
-    <div>
-        {{ __('Please confirm access to your account by entering the authentication code provided by your authenticator application.') }}
-    </div>
+        <div id="emergency" class="form-group mb-3 d-none">
+            <label class="form-label">{{ __('auth.2fa.emergency') }}</label>
+            <div>
+                <input type="text" name="recovery_code" autofocus autocomplete="one-time-code" class="form-control">
+                <small class="form-hint">{{ __('auth.2fa.emergencycodehelp') }}</small>
+            </div>
+        </div>
 
-    <div>
-        <label>{{ __('Code') }}</label>
-        <input type="text" name="code" autofocus autocomplete="one-time-code" />
-    </div>
-
-    {{-- ** OR ** --}}
-
-    <div>
-        {{ __('Please confirm access to your account by entering one of your emergency recovery codes.') }}
-    </div>
-
-    <div>
-        <label>{{ __('Recovery Code') }}</label>
-        <input type="text" name="recovery_code" autocomplete="one-time-code" />
-    </div>
-
-    <div>
-        <button type="submit">
-            {{ __('Login') }}
-        </button>
+        <div class="form-footer">
+            <button type="submit" class="btn btn-primary w-100" tabindex="4">{{ __('auth.2fa.submit') }}</button>
+        </div>
     </div>
 </form>
+
+<div class="text-center text-muted mt">
+    <a href="#" id="switcher" onclick="switcherFunction();" data-id="logincode" tabindex="-1">{{ __('auth.2fa.loginrecovery') }}</a>
+</div>
+
+<script>
+// set variables
+var switcher = $("#switcher");
+var codeElement = $("#code");
+var recoveryElement = $("#emergency");
+
+function switcherFunction(){
+    // get current state
+    var current = switcher.attr("data-id");
+    // if current state is logincode
+    if(current == "logincode"){
+        // change current state to recoverycode
+        switcher.attr("data-id", "recoverycode");
+        // change text of switcher
+        switcher.text("{{ __('auth.2fa.logincode') }}");
+        // hide 2fa code input
+        codeElement.addClass("d-none");
+        // show recovery code input
+        recoveryElement.removeClass("d-none");
+    } else {
+        // change current state to logincode
+        switcher.attr("data-id", "logincode");
+        // change text of switcher
+        switcher.text("{{ __('auth.2fa.loginrecovery') }}");
+        // show 2fa code input
+        codeElement.removeClass("d-none");
+        // hide recovery code input
+        recoveryElement.addClass("d-none");
+    }
+}
+</script>
+
+@endsection

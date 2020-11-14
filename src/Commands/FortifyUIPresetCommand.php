@@ -1,24 +1,24 @@
 <?php
 
-namespace YourNamespace\FortifyUIPreset\Commands;
+namespace Proxeuse\FortifyUITabler\Commands;
 
 use Illuminate\Console\Command;
 
-class FortifyUIPresetCommand extends Command
+class FortifyUITablerCommand extends Command
 {
-    public $signature = 'fortify-ui:yourpreset';
+    public $signature = 'fortify-ui:tabler';
 
-    public $description = 'Install YourPreset with views and resources';
+    public $description = 'Install Tabler.io with views and resources';
 
     public function handle()
     {
         $this->publishAssets();
 
-        $this->comment('YourPreset is now installed.');
+        $this->comment('The Tabler.io Framework is now installed.');
     }
 
     protected function publishAssets()
     {
-        $this->callSilent('vendor:publish', ['--tag' => 'fortify-ui-preset-resources', '--force' => true]);
+        $this->callSilent('vendor:publish', ['--tag' => 'fortify-ui-tabler-resources', '--force' => true]);
     }
 }

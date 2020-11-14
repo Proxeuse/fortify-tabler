@@ -1,40 +1,21 @@
-@extends('layouts.app')
+@extends('layouts.auth')
 
 @section('content')
-    <div>
-        {{ __('Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.') }}
-    </div>
+<form method="POST" action="{{ route('password.email') }}" class="card card-md">
+    @csrf
+    <div class="card-body">
+        <h2 class="text-center">{{ __('auth.forgotpassword') }}</h2>
+        <p class="text-center mx-md-5 mx-2">{{ __('auth.forgotpasswordtext') }}</p>
 
-    @if (session('status'))
-        <div>
-            {{ session('status') }}
-        </div>
-    @endif
-
-    @if ($errors->any())
-        <div>
-            <div>{{ __('Whoops! Something went wrong.') }}</div>
-
-            <ul>
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-    @endif
-
-    <form method="POST" action="{{ route('password.email') }}">
-        @csrf
-
-        <div>
-            <label>{{ __('Email') }}</label>
-            <input type="email" name="email" value="{{ old('email') }}" required autofocus />
+        <div class="mb-3">
+            <label class="form-label">{{ __('auth.fields.email') }}</label>
+            <input class="form-control" type="email" name="email" placeholder="{{ __('auth.placeholder.email') }}"
+                value="{{ old('email') }}" required autofocus tabindex="1"/>
         </div>
 
-        <div>
-            <button type="submit">
-                {{ __('Email Password Reset Link') }}
-            </button>
+        <div class="form-footer">
+            <button type="submit" class="btn btn-primary w-100" tabindex="2">{{ __('auth.submit') }}</button>
         </div>
-    </form>
+
+</form>
 @endsection

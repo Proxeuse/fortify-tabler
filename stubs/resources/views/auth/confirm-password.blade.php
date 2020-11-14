@@ -1,36 +1,28 @@
-@extends('layouts.app')
+@extends('layouts.auth')
 
 @section('content')
-    @if ($errors->any())
-        <div>
-            <div>{{ __('Whoops! Something went wrong.') }}</div>
 
-            <ul>
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-    @endif
+<form method="POST" action="{{ route('password.confirm') }}" class="card card-md">
+    @csrf
+    <div class="card-body">
+        <h2 class="mb-3 text-center">{{ __('auth.confirmpassword') }}</h2>
 
-    <form method="POST" action="{{ route('password.confirm') }}">
-        @csrf
-
-        <div>
-            <label>{{ __('Password') }}</label>
-            <input type="password" name="password" required autocomplete="current-password" />
+        <div class="mb-3">
+            <label class="form-label">{{ __('auth.fields.password') }}</label>
+            <input class="form-control" type="password" name="password" placeholder="{{ __('auth.placeholder.password') }}"
+                value="{{ old('password') }}" required autofocus tabindex="1" autocomplete="current-password"/>
         </div>
 
-        <div>
-            <button type="submit">
-                {{ __('Confirm Password') }}
-            </button>
+        <div class="form-footer">
+            <button type="submit" class="btn btn-primary w-100" tabindex="2">{{ __('auth.submit') }}</button>
         </div>
 
-        @if (Route::has('password.request'))
-            <a href="{{ route('password.request') }}">
-                {{ __('Forgot Your Password?') }}
-            </a>
-        @endif
-    </form>
+</form>
+
+@if (Route::has('password.request'))
+<div class="text-center text-muted mt">
+    <a href="{{ route('password.request') }}" tabindex="-1">{{ __('auth.forgotpassword') }}</a>
+</div>
+@endif
+
 @endsection

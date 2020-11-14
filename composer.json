@@ -1,17 +1,22 @@
 {
-    "name": "yournamespace/fortify-yourpreset",
-    "description": "Fortify-driven Laravel UI replacement",
+    "name": "proxeuse/fortify-tabler",
+    "description": "A preset for FortifyUI based on the Tabler Bootstrap framework.",
     "keywords": [
         "fortify-ui"
     ],
-    "homepage": "https://github.com/yourusername/fortify-yourpreset",
+    "homepage": "https://github.com/Proxeuse/fortify-tabler/",
     "license": "MIT",
     "authors": [
         {
-            "name": "Your Name",
-            "email": "you@yourdomain.com",
-            "homepage": "https://yourusername.github.io",
+            "name": "Roel Reijneveld",
+            "email": "info@roelreijneveld.nl",
+            "homepage": "https://roelreijneveld.nl",
             "role": "Developer"
+        },
+        {
+            "name": "Proxeuse",
+            "email": "contact@proxeuse.com",
+            "homepage": "https://www.proxeuse.com/"
         }
     ],
     "require": {
@@ -27,12 +32,12 @@
     },
     "autoload": {
         "psr-4": {
-            "YourNamespace\\FortifyUIPreset\\": "src"
+            "Proxeuse\\FortifyUITabler\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "YourNamespace\\FortifyUIPreset\\Tests\\": "tests"
+            "Proxeuse\\FortifyUITabler\\Tests\\": "tests"
         }
     },
     "scripts": {
@@ -47,7 +52,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "YourNamespace\\FortifyUIPreset\\FortifyUIPresetServiceProvider"
+                "Proxeuse\\FortifyUITabler\\FortifyUITablerServiceProvider"
             ]
         }
     },
