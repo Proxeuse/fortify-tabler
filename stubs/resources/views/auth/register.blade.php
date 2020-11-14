@@ -1,5 +1,6 @@
 @extends('layouts.auth')
 
+@section('content')
 <form method="POST" action="{{ route('register') }}" class="card card-md">
     @csrf
     <div class="card-body">
