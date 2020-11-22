@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.auth')
 
 @section('content')
 @if (session('status') == 'verification-link-sent')
@@ -10,7 +10,7 @@
 <div class="card card-md">
     <div class="card-body">
         <h2 class="text-center">{{ __('auth.emailverification') }}</h2>
-        <p class="text-center mx-md-5 mx-2">
+        <p class="text-center mx-2">
             {{ __('auth.emailverificationtext') }}
         </p>
         <form method="POST" action="{{ route('verification.send') }}">
