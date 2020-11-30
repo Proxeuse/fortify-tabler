@@ -9,7 +9,7 @@ Laravel 8 has a new and very efficient application scaffolding package called [J
 
 This package is a preset for FortifyUI, it brings ready-to-use and beautiful templates for the most important pages which include: login, registration, password reset pages and two factor authentication. The templates are based and build on the [Tabler.io](https://tabler.io) framework which is build with Bootstrap 5.0.
 
-This preset includes Tabler assets for [release 1.0.0-alpha.13](https://github.com/tabler/tabler/releases/tag/v1.0.0-alpha.13).
+This preset includes Tabler assets for [release 1.0.0-alpha.13](https://github.com/tabler/tabler/releases/tag/v1.0.0-alpha.15).
 
 - [Installation](#installation)
 - [Two Factor Authentication](#2fa)
