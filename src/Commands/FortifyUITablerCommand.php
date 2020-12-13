@@ -30,6 +30,10 @@ class FortifyUITablerCommand extends Command
             // create symbolic link
             \Artisan::call('storage:link');
 
+            // Clear the Route cache
+            \Artisan::call('route:clear');
+            \Artisan::call('route:cache');
+
             // print success message
             $this->info('The Tabler.io Framework is now installed.');
             $this->newLine();
