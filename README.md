@@ -7,9 +7,9 @@
 
 Laravel 8 has a new and very efficient application scaffolding package called [Jetstream](https://jetstream.laravel.com), many users however do not want to learn a new framework (TailWind CSS). Luckily, the backend of Jetstream has been made available under the name of Fortify. Fortify is a headless authentication backend without any pre-configured frontend templates which is a disadvantage. [FortifyUI](https://github.com/zacksmash/fortify-ui) improves Fortify by adding that missing feature.
 
-This package is a preset for FortifyUI, it brings ready-to-use and beautiful templates for the most important pages which include: login, registration, password reset pages and two factor authentication. The templates are based and build on the [Tabler.io](https://tabler.io) framework which is build with Bootstrap 5.0.
+This package is a preset for FortifyUI, it brings ready-to-use and beautiful templates for the most important pages which include: login, registration, password reset pages and two factor authentication. In the latest release, avatars and device management are introduced. The templates are based and build on the [Tabler.io](https://tabler.io) framework which is build with Bootstrap 5.0.
 
-This preset includes Tabler assets for [release 1.0.0-alpha.13](https://github.com/tabler/tabler/releases/tag/v1.0.0-alpha.15).
+This preset includes Tabler assets for [release 1.0.0-alpha.15](https://github.com/tabler/tabler/releases/tag/v1.0.0-alpha.15).
 
 - [Installation](#installation)
 - [Two Factor Authentication](#2fa)
@@ -21,28 +21,30 @@ This preset includes Tabler assets for [release 1.0.0-alpha.13](https://github.c
 
 ## Installation
 
-To get started, you'll need to have FortifyUI installed. Firstly, install it using composer:
-
-```bash
-composer require zacksmash/fortify-ui
-```
-
-After the installation, run the install command.
-
-```bash
-php artisan fortify-ui:install
-```
-
-After installing FortifyUI, you'll have to install **fortify-tabler**. Again using composer:
+To get started please install the package using composer. This command also installs [FortifyUI](https://github.com/zacksmash/fortify-ui) so you shouldn't install it first.
 
 ```bash
 composer require proxeuse/fortify-tabler
 ```
 
-Next, you'll need to run the install command. Please note the change from `fortify-ui:install` to `fortify-ui:tabler`. This command will publish **fortify-tabler's** views and resources to your project.
+Once installed, please run the installer using the following PHP artisan command. The installer will take you through the installation process and ask you some questions.
 
 ```bash
 php artisan fortify-ui:tabler
+```
+
+Please do not forget to run the `php artisan migrate` command after the successfull installation!
+
+### Set session driver to database
+
+This package features a function for users to force-logout devices from their account. In order for this function to work you'll need to have set the session driver to database. This can be done by chaning the `SESSION_DRIVER` variable in the `.env` file to `database`. A part of the file will look like the one below. In this example the session lifetime is set to 5 days instead of the default 2 hours.
+
+```bash
+BROADCAST_DRIVER=log
+CACHE_DRIVER=file
+QUEUE_CONNECTION=sync
+SESSION_DRIVER=database
+SESSION_LIFETIME=7200
 ```
 
 <a name="2fa"></a>
