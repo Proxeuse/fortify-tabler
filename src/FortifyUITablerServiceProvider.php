@@ -10,8 +10,6 @@ class FortifyUITablerServiceProvider extends ServiceProvider
     public function boot()
     {
         if ($this->app->runningInConsole()) {
-            // Load translation files
-            $this->loadTranslationsFrom(__DIR__.'/../stubs/resources/lang', 'tabler');
             // Load Routes
             $this->loadRoutesFrom(__DIR__.'/../stubs/routes/web.php');
             // Load Migrations
@@ -21,7 +19,7 @@ class FortifyUITablerServiceProvider extends ServiceProvider
             $this->publishes([
                 __DIR__ . '/../stubs/resources/views' => base_path('resources/views'),
                 __DIR__ . '/../stubs/public' => base_path('public'),
-                __DIR__ . '/../stubs/resources/lang' => base_path('resources/lang/vendor/tabler'),
+                __DIR__ . '/../stubs/resources/lang' => base_path('resources/lang'),
                 __DIR__ . '/../stubs/app/Http/Controllers' => base_path('app/Http/Controllers'),
             ], 'fortify-ui-tabler-resources');
 
