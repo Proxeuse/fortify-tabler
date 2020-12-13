@@ -1,4 +1,5 @@
 @extends('layouts.dashboard')
+@section('content')
 <div class="content">
     <div class="container-xl">
         <div class="row row-cards">
