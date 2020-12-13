@@ -1,6 +1,11 @@
 <?php
 
-Route::get('/profile', [\App\Http\Controllers\ProfileController::class, 'editProfile'])->name('profile');
-Route::post('/profile/avatar', [\App\Http\Controllers\ProfileController::class, 'updateAvatar'])->name('profile.avatar');
-Route::delete('/profile/avatar', [\App\Http\Controllers\ProfileController::class, 'removeOldAvatar'])->name('profile.deleteavatar');
-Route::delete('/profile/device', [\App\Http\Controllers\ProfileController::class, ''])->name('profile.deletedevice');
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProfileController;
+
+Route::middleware(['web', 'auth'])->group(function(){
+    Route::get('/profile', [ProfileController::class, 'editProfile'])->name('profile');
+    Route::post('/profile/avatar', [ProfileController::class, 'updateAvatar'])->name('profile.avatar');
+    Route::delete('/profile/avatar', [ProfileController::class, 'removeOldAvatar'])->name('profile.deleteavatar');
+    Route::delete('/profile/device', [ProfileController::class, ''])->name('profile.deletedevice');
+});
