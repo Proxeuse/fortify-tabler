@@ -2,7 +2,9 @@
     "name": "proxeuse/fortify-tabler",
     "description": "A preset for FortifyUI based on the Tabler Bootstrap framework.",
     "keywords": [
-        "fortify-ui"
+        "fortify-ui",
+        "laravel",
+        "tabler.io"
     ],
     "homepage": "https://github.com/Proxeuse/fortify-tabler/",
     "license": "MIT",
@@ -22,7 +24,8 @@
     "require": {
         "php": "^7.4",
         "illuminate/contracts": "^8.0",
-        "zacksmash/fortify-ui": "^1.0"
+        "zacksmash/fortify-ui": "^1.0",
+        "intervention/image": "^2.5.1"
     },
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^2.16",
