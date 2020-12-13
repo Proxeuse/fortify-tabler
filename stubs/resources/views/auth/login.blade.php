@@ -41,12 +41,12 @@
             </div>
         </div>
 
-        <div class="mb-2">
+        {{-- <div class="mb-2">
             <label class="form-check">
                 <input type="checkbox" name="remember" class="form-check-input" tabindex="3" />
                 <span class="form-check-label">{{ __('auth.rememberme') }}</span>
             </label>
-        </div>
+        </div> --}}
         <div class="form-footer">
             <button type="submit" class="btn btn-primary w-100" tabindex="4">{{ __('auth.loginbutton') }}</button>
         </div>
