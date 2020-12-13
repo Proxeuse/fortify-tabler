@@ -36,9 +36,9 @@ class ProfileController extends Controller
 
         // process avatar and redirect back
         if($this->processAvatar($request)) {
-            return Redirect::back()->with('success', 'Updated the avatar successfully!');
+            return \Redirect::back()->with('success', 'Updated the avatar successfully!');
         } else {
-            return Redirect::back()->withErrors(['avatar', 'Failed to update the avatar']);
+            return \Redirect::back()->withErrors(['avatar', 'Failed to update the avatar']);
         }
     }
 
@@ -100,7 +100,7 @@ class ProfileController extends Controller
         if($internalRequest){
             return true;
         } else {
-            return Redirect::back()->with('success', 'The avatar has been deleted successfully!');
+            return \Redirect::back()->with('success', 'The avatar has been deleted successfully!');
         }
     }
 }
