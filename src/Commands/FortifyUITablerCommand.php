@@ -3,6 +3,7 @@
 namespace Proxeuse\FortifyUITabler\Commands;
 
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\Schema;
 
 class FortifyUITablerCommand extends Command
 {
@@ -32,7 +33,7 @@ class FortifyUITablerCommand extends Command
             // print success message
             $this->info('The Tabler.io Framework is now installed.');
             $this->newLine();
-            $this->line('Please run \'php artisan migrate\' before continuing.');    
+            $this->line('Please run php artisan migrate before continuing.');    
         } else {
             // print abort message
             $this->error('Installation is aborted');
