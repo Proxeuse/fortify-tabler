@@ -41,7 +41,7 @@
             </div>
             @if ($errors->any())
             <div class="alert alert-danger" role="alert">
-                {{ __('auth.error') }}: {{ $errors->first() }}
+                {{ __('tabler::auth.error') }}: {{ $errors->first() }}
             </div>
             @endif
             @yield('content')

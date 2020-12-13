@@ -5,20 +5,20 @@
     @csrf
     <input type="hidden" name="token" value="{{ $request->route('token') }}">
     <div class="card-body">
-        <h2 class="text-center">{{ __('auth.forgotpassword') }}</h2>
-        <p class="text-center mx-md-5 mx-2">{{ __('auth.forgotpasswordtext') }}</p>
+        <h2 class="text-center">{{ __('tabler::auth.forgotpassword') }}</h2>
+        <p class="text-center mx-md-5 mx-2">{{ __('tabler::auth.forgotpasswordtext') }}</p>
 
         <div class="mb-3">
-            <label class="form-label">{{ __('auth.fields.email') }}</label>
-            <input class="form-control" type="email" name="email" placeholder="{{ __('auth.placeholder.email') }}"
+            <label class="form-label">{{ __('tabler::auth.fields.email') }}</label>
+            <input class="form-control" type="email" name="email" placeholder="{{ __('tabler::auth.placeholder.email') }}"
                 value="{{ old('email', $request->email) }}" required autofocus tabindex="1"/>
         </div>
 
         <div class="mb-3">
-            <label class="form-label">{{ __('auth.fields.password') }}</label>
+            <label class="form-label">{{ __('tabler::auth.fields.password') }}</label>
             <div class="input-group input-group-flat">
                 <input type="password" name="password" required autocomplete="new-password" class="form-control"
-                    placeholder="{{ __('auth.placeholder.password') }}" tabindex="3">
+                    placeholder="{{ __('tabler::auth.placeholder.password') }}" tabindex="3">
                 <span class="input-group-text">
                     <a href="#" class="link-secondary" title="Show password" data-toggle="tooltip"><svg
                             xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24"
@@ -34,13 +34,13 @@
             </div>
         </div>
         <div class="mb-3">
-            <label class="form-label">{{ __('auth.fields.passwordconfirmation') }}</label>
+            <label class="form-label">{{ __('tabler::auth.fields.passwordconfirmation') }}</label>
             <input type="password" name="password_confirmation" required autocomplete="new-password"
-                class="form-control" placeholder="{{ __('auth.placeholder.passwordconfirmation') }}" tabindex="4">
+                class="form-control" placeholder="{{ __('tabler::auth.placeholder.passwordconfirmation') }}" tabindex="4">
         </div>
 
         <div class="form-footer">
-            <button type="submit" class="btn btn-primary w-100" tabindex="2">{{ __('auth.submit') }}</button>
+            <button type="submit" class="btn btn-primary w-100" tabindex="2">{{ __('tabler::auth.submit') }}</button>
         </div>
 
 </form>
