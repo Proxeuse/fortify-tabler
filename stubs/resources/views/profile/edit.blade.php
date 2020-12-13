@@ -102,7 +102,7 @@
                                             @if(\Session::getId() == $device->id)
                                             <button disabled="disabled" class="btn btn-primary">Current Device</button>
                                             @else
-                                            <form action="{{ route('profile.deletedevice', $device->id) }}"
+                                            <form action="{{ route('profile.deletedevice', ['id' => $device->id]) }}"
                                                 method="post">
                                                 @csrf
                                                 @method('DELETE')

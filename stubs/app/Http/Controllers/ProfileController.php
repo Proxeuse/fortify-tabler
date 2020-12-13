@@ -22,7 +22,7 @@ class ProfileController extends Controller
     /**
      * Update the Avatar
      * 
-     * @param Request
+     * @param \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
     public function updateAvatar(Request $request){
@@ -102,5 +102,17 @@ class ProfileController extends Controller
         } else {
             return \Redirect::back()->with('success', 'The avatar has been deleted successfully!');
         }
+    }
+
+    /**
+     * Remove unused device
+     * 
+     * @param \Illuminate\Http\Request $request
+     * @param $id
+     * @return \Illuminate\Http\Response
+     */
+    public function removeDevice(Request $request, $id){
+        $delete = \DB::table('sessions')->where('id', $id)->delete();
+        return \Redirect::back()->with('success', 'The device has been deleted successfully!');
     }
 }
