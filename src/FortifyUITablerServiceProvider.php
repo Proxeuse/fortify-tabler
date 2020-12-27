@@ -4,6 +4,8 @@ namespace Proxeuse\FortifyUITabler;
 
 use Illuminate\Support\ServiceProvider;
 use Proxeuse\FortifyUITabler\Commands\FortifyUITablerCommand;
+use Proxeuse\FortifyUITabler\Commands\FortifyUITablerUpdateCommand;
+
 
 class FortifyUITablerServiceProvider extends ServiceProvider
 {
@@ -25,6 +27,7 @@ class FortifyUITablerServiceProvider extends ServiceProvider
 
             $this->commands([
                 FortifyUITablerCommand::class,
+                FortifyUITablerUpdateCommand::class,
             ]);
         }
     }
