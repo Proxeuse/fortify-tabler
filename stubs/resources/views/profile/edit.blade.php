@@ -19,6 +19,21 @@
                         </div>
                         @endif
 
+                        @if(session('status') == 'two-factor-authentication-enabled')
+                        {{-- Show SVG QR Code, After Enabling 2FA --}}
+                        <div class="alert alert-success" id="enable2fa">
+                            <p class="mb-2">
+                                {{ __('Two factor authentication is now enabled. Scan the following QR code using your phone\'s authenticator application.') }}
+                            </p>
+                            <div>{!! auth()->user()->twoFactorQrCodeSvg() !!}</div>
+                        </div>
+                        <style>
+                            #enable2fa svg {
+                                border: 10px solid #fff;
+                            }
+                        </style>
+                        @endif
+
                         <div class="row mb-3">
                             <div class="col-2 text-center m-auto">
                                 <span
@@ -78,6 +93,8 @@
 
                         <hr>
 
+                        <h2>{{ __('Active Sessions') }}</h2>
+
                         <div class="table-responsive">
                             <table class="table table-vcenter datatable">
                                 <thead>
@@ -122,20 +139,22 @@
                             @csrf
                             @method('PUT')
 
+                            <h2>{{ __('Change Password') }}</h2>
+
                             <div class="mb-3">
-                                <label class="form-label">{{ __('dashboard.profile.update.currentpassword') }}</label>
+                                <label class="form-label">{{ __('Current Password') }}</label>
                                 <input type="password" name="current_password" class="form-control" required
                                     autocomplete="current-password" />
                             </div>
 
                             <div class="mb-3">
-                                <label class="form-label">{{ __('dashboard.profile.update.newpassword') }}</label>
+                                <label class="form-label">{{ __('New Password') }}</label>
                                 <input type="password" name="password" class="form-control" required
                                     autocomplete="new-password" />
                             </div>
 
                             <div class="mb-3">
-                                <label>{{ __('dashboard.profile.update.currentpassword') }}</label>
+                                <label>{{ __('Confirm New Password') }}</label>
                                 <input type="password" name="password_confirmation" class="form-control" required
                                     autocomplete="new-password" />
                             </div>
@@ -147,9 +166,9 @@
                             </div>
                         </form>
 
-                        <hr>
-
                         @if (Laravel\Fortify\Features::enabled(Laravel\Fortify\Features::twoFactorAuthentication()))
+                        <hr>
+                        <h2>{{ __('Two Factor Authentication') }}</h2>
                         @include('profile.two-factor-authentication-form')
                         @endif
                     </div>
