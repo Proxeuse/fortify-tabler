@@ -25,6 +25,7 @@ jobs:
         key: ${{ runner.os }}-php-${{ hashFiles('**/composer.lock') }}
         restore-keys: |
           ${{ runner.os }}-php-
+        php-version: '7.4'
 
     - name: Install dependencies
       if: steps.composer-cache.outputs.cache-hit != 'true'
