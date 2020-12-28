@@ -1,0 +1,36 @@
+.icon {
+  width: $font-size-base * $line-height-base;
+  height: $font-size-base * $line-height-base;
+  font-size: $font-size-base * $line-height-base;
+  vertical-align: bottom;
+
+  @if $icon-stroke-width {
+    stroke-width: $icon-stroke-width;
+  }
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.icon-inline {
+  width: 1.25em;
+  height: 1.25em;
+  font-size: 1em;
+}
+
+.icon-filled {
+  fill: currentColor;
+}
+
+.icon-md {
+  width: 2.5rem;
+  height: 2.5rem;
+  stroke-width: 1;
+}
+
+.icon-lg {
+  width: 3.5rem;
+  height: 3.5rem;
+  stroke-width: 1;
+}
