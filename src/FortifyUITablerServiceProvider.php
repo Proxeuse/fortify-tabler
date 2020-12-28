@@ -17,13 +17,41 @@ class FortifyUITablerServiceProvider extends ServiceProvider
             // Load Migrations
             $this->loadMigrationsFrom(__DIR__.'/../stubs/database/migrations');
 
-            // Publis files
+            // Publish files
             $this->publishes([
                 __DIR__ . '/../stubs/resources/views' => base_path('resources/views'),
                 __DIR__ . '/../stubs/public' => base_path('public'),
                 __DIR__ . '/../stubs/resources/lang' => base_path('resources/lang'),
                 __DIR__ . '/../stubs/app/Http/Controllers' => base_path('app/Http/Controllers'),
-            ], 'fortify-ui-tabler-resources');
+            ], 'tabler-resources');
+
+            // Update all files
+            $this->publishes([
+                __DIR__ . '/../stubs/resources/views' => base_path('resources/views'),
+                __DIR__ . '/../stubs/public' => base_path('public'),
+                __DIR__ . '/../stubs/resources/lang' => base_path('resources/lang'),
+                __DIR__ . '/../stubs/app/Http/Controllers' => base_path('app/Http/Controllers'),
+            ], 'tabler-update-full');
+
+            // Update public files
+            $this->publishes([
+                __DIR__ . '/../stubs/public' => base_path('public'),
+            ], 'tabler-update-public');
+
+            // Update views
+            $this->publishes([
+                __DIR__ . '/../stubs/resources/views' => base_path('resources/views'),
+            ], 'tabler-update-views');
+
+            // Update controllers
+            $this->publishes([
+                __DIR__ . '/../stubs/app/Http/Controllers' => base_path('app/Http/Controllers'),
+            ], 'tabler-update-controllers');
+
+            // Update all files
+            $this->publishes([
+                __DIR__ . '/../stubs/resources/lang' => base_path('resources/lang'),
+            ], 'tabler-update-language');
 
             $this->commands([
                 FortifyUITablerCommand::class,

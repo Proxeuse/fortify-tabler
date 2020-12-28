@@ -9,9 +9,10 @@ Laravel 8 has a new and very efficient application scaffolding package called [J
 
 This package is a preset for FortifyUI, it brings ready-to-use and beautiful templates for the most important pages which include: login, registration, password reset pages and two factor authentication. In the latest release, avatars and device management are introduced. The templates are based and build on the [Tabler.io](https://tabler.io) framework which is build with Bootstrap 5.0.
 
-This preset includes Tabler assets for [release 1.0.0-alpha.17](https://github.com/tabler/tabler/releases/tag/v1.0.0-alpha.17).
+This preset includes Tabler assets for [release 1.0.0-alpha.21](https://github.com/tabler/tabler/releases/tag/v1.0.0-alpha.21).
 
 - [Installation](#installation)
+- [Update Instructions](#update)
 - [Two Factor Authentication](#2fa)
 - [Mail Verification](#mail-verification)
 - [Password Confirmation](#password-confirmation)
@@ -30,10 +31,38 @@ composer require proxeuse/fortify-tabler
 Once installed, please run the installer using the following PHP artisan command. The installer will take you through the installation process and ask you some questions.
 
 ```bash
-php artisan fortify-ui:tabler
+php artisan tabler:install
 ```
 
 Please do not forget to run the `php artisan migrate` command after the successfull installation!
+
+<a name="update"></a>
+
+## Update Instructions
+
+You are able to perform certain updates using the built in updater. This updater will try to override certain files which are included in a new release. Please note that changes applied to those files will be discarded and you should make sure your changes are safe.
+
+Firstly, make sure that you update all files from the repository. This can be done by running the following command or by copying the contents of the repository to your `/vendor/proxeuse/fortify-tabler/` folder.
+
+```bash
+composer update
+```
+
+Once succeeded, you should run the built in update command. You're able to choose between a couple of different updates. 
+
+```bash
+php artisan fortify:update
+```
+
+The command above will update all files, it functions the same as the `--type=full` command. All of other the options are listed below:
+
+| Command                                         | Action                                                                               |
+|-------------------------------------------------|--------------------------------------------------------------------------------------|
+| `php artisan tabler:update --type=full`         | This will override all files originally installed by the installer.                  |
+| `php artisan tabler:update --type=views`        | This will override all views which are used by the installer.                        |
+| `php artisan tabler:update --type=language`     | This will replace the language files with updated ones.                              |
+| `php artisan tabler:update --type=controllers`  | This will update the controllers which are used by the package.                      |
+| `php artisan tabler:update --type=public`       | This will update all public resources, including for example `.css` and `.js` files. |
 
 ### Set session driver to database
 

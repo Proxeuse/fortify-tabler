@@ -7,40 +7,50 @@ use Illuminate\Support\Facades\Schema;
 
 class FortifyUITablerUpdateCommand extends Command
 {
-    public $signature = 'fortify-ui:tabler-update';
+    public $signature = 'tabler:update {--T|type=full : The type of update. Either full, public, language, views or controllers.}';
 
     public $description = 'Update views, resources and routes for the Tabler.io framework.';
 
     public function handle()
     {
         // confirm the installation
-        if ($this->confirm('Do you wish to continue? This updater will try to overwrite existing views, resources, language files and routes.', true)) {
-            // install fortifyUI
-            \Artisan::call('fortify-ui:install');
-            $this->info('FortifyUI has been updated. Proceeding to update Tabler.io.');
-            
-            // publish the assets, routes, controllers, etc.
-            $this->publishAssets();
+        if ($this->confirm('Do you wish to continue? This updater will try to override certain files which may include files you\'ve edited.', true)) {
+            switch ($this->option("type")) {
+                case "public":
+                    // publish public assets
+                    $this->callSilent('vendor:publish', ['--tag' => 'tabler-update-public', '--force' => true]);
+                    break;
+                case "language":
+                    // publish language files
+                    $this->callSilent('vendor:publish', ['--tag' => 'tabler-update-language', '--force' => true]);
+                    break;
+                case "views":
+                    // publish views
+                    $this->callSilent('vendor:publish', ['--tag' => 'tabler-update-views', '--force' => true]);
+                    break;
+                case "controllers":
+                    // publish controllers
+                    $this->callSilent('vendor:publish', ['--tag' => 'tabler-update-controllers', '--force' => true]);
+                    break;
+                default:
+                    // publish all files
+                    $this->callSilent('vendor:publish', ['--tag' => 'tabler-update-full', '--force' => true]);
+                    break;
+            }
 
             // create symbolic link
-            \Artisan::call('storage:link');
+            $this->callSilent('storage:link');
 
             // Clear the Route cache
-            \Artisan::call('route:clear');
-            \Artisan::call('route:cache');
+            $this->callSilent('route:clear');
+            $this->callSilent('route:cache');
 
             // print success message
             $this->info('The Tabler.io Framework is now updated.');
-            $this->newLine();
-            $this->line('Please run php artisan migrate before continuing.');    
+            $this->info('Please run php artisan migrate before continuing.');    
         } else {
             // print abort message
             $this->error('Update is aborted');
         }
-    }
-
-    protected function publishAssets()
-    {
-        $this->callSilent('vendor:publish', ['--tag' => 'fortify-ui-tabler-resources', '--force' => true]);
     }
 }

@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Schema;
 
 class FortifyUITablerCommand extends Command
 {
-    public $signature = 'fortify-ui:tabler';
+    public $signature = 'tabler:install';
 
     public $description = 'Install Tabler.io with views and resources';
 
@@ -46,7 +46,7 @@ class FortifyUITablerCommand extends Command
 
     protected function publishAssets()
     {
-        $this->callSilent('vendor:publish', ['--tag' => 'fortify-ui-tabler-resources', '--force' => true]);
+        $this->callSilent('vendor:publish', ['--tag' => 'tabler-resources', '--force' => true]);
     }
 
     protected function changeSessionDriver(){
