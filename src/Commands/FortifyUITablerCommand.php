@@ -16,7 +16,7 @@ class FortifyUITablerCommand extends Command
         // confirm the installation
         if ($this->confirm('Do you wish to continue? Please only continue on a fresh Laravel installation since multiple files are overwritten by the installer.', false)) {
             // install fortifyUI
-            \Artisan::call('fortify-ui:install');
+            \Artisan::call('fortify:ui');
             $this->info('FortifyUI has been installed. Proceeding to install Tabler.io.');
             
             // publish the assets, routes, controllers, etc.
