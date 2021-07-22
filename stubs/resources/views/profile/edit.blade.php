@@ -1,4 +1,8 @@
 @extends('layouts.dashboard')
+
+@section('page-pretitle', 'Your Information')
+@section('page-title', 'Edit Your Profile')
+
 @section('content')
 <div class="content">
     <div class="container-xl">
