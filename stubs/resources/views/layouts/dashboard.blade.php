@@ -9,10 +9,6 @@
     <!-- Libs CSS -->
     <link href="{{ asset('dist/libs/jqvmap/dist/jqvmap.min.css') }}" rel="stylesheet" />
     <link href="{{ asset('dist/libs/selectize/dist/css/selectize.css') }}" rel="stylesheet" />
-    <link href="{{ asset('dist/libs/fullcalendar/core/main.min.css') }}" rel="stylesheet" />
-    <link href="{{ asset('dist/libs/fullcalendar/daygrid/main.min.css') }}" rel="stylesheet" />
-    <link href="{{ asset('dist/libs/fullcalendar/timegrid/main.min.css') }}" rel="stylesheet" />
-    <link href="{{ asset('dist/libs/fullcalendar/list/main.min.css') }}" rel="stylesheet" />
     <link href="{{ asset('dist/libs/flatpickr/dist/flatpickr.min.css') }}" rel="stylesheet" />
     <link href="{{ asset('dist/libs/nouislider/distribute/nouislider.min.css') }}" rel="stylesheet" />
     <link href="https://api.mapbox.com/mapbox-gl-js/v1.8.0/mapbox-gl.css" rel="stylesheet" />
@@ -21,7 +17,6 @@
     <!-- Tabler Plugins -->
     <link href="{{ asset('dist/css/tabler-flags.min.css') }}" rel="stylesheet" />
     <link href="{{ asset('dist/css/tabler-payments.min.css') }}" rel="stylesheet" />
-    <link href="{{ asset('dist/css/tabler-buttons.min.css') }}" rel="stylesheet" />
 
     <!-- Libs JS -->
     <script src="{{ asset('dist/libs/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
